@@ -30,4 +30,5 @@ Route::prefix('tasks')
     Route::get("/{task}/edit", "edit")->name('edit');
     Route::post("/{task}/edit", "update")->name('update');
     Route::get("/{task}/destroy", "destroy")->name('destroy');
+    Route::get("/{task}", "completion")->name('completion');
 });

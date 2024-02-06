@@ -116,4 +116,22 @@ class TodoListController extends Controller
 
         return to_route('tasks.index');
     }
+
+    /**
+     * 完了->未完了ボタン
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function completion($id)
+    {
+        $task = task::find($id);
+        if ($task->status == 0) {
+            $task->status = 1;
+        } elseif ($task->status == 1) {
+            $task->status = 0;
+        }
+        $task->save();
+
+        return to_route('tasks.index');
+    }
 }

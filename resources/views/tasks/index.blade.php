@@ -29,7 +29,7 @@
                 <div class="task">
                     <div class="task-name">{{ $task->name }}</div>
                     <div class="task-status">
-                        <a href="#">
+                        <a href="{{route('tasks.completion', ['task' => $task->id])}}">
                             @if ($task->status == 0)
                             完了
                             @elseif ($task->status == 1)

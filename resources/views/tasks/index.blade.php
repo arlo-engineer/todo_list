@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    @vite('resources/js/app.js')
     <title>ToDo List</title>
 </head>
 <body>
@@ -26,9 +27,9 @@
 
             <div class="tasks">
                 @foreach ($tasks as $task)
-                <div class="task">
+                <div class="task @if($task->status == 1)is-completion @endif">
                     <div class="task-name">{{ $task->name }}</div>
-                    <div class="task-status">
+                    <div class="task-status @if($task->status == 1)is-completion @endif">
                         <a href="{{route('tasks.completion', ['task' => $task->id])}}">
                             @if ($task->status == 0)
                             完了
@@ -37,12 +38,16 @@
                             @endif
                         </a>
                     </div>
-                    <div class="task-edit"><a href="{{route('tasks.edit', ['task' => $task->id])}}">編集</a></div>
-                    <div class="task-delete"><a href="{{route('tasks.destroy', ['task' => $task->id])}}">削除</a></div>
+                    <div class="task-edit @if($task->status == 1)is-completion @endif"><a href="{{route('tasks.edit', ['task' => $task->id])}}">編集</a></div>
+                    <div class="task-delete @if($task->status == 1)is-completion @endif"><a href="{{route('tasks.destroy', ['task' => $task->id])}}">削除</a></div>
                 </div><!-- /.task -->
                 @endforeach
             </div>
         </form>
     </div>
+
+    {{-- js 使用しない場合は削除OK --}}
+    <script type="module" src="{{ asset('/js/jquery.js') }}"></script>
+    <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>

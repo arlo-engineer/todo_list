@@ -44,19 +44,9 @@
                 </div><!-- /.task -->
                 @endforeach
 
-                @php
-                    $i = 0;
-                    $statusCount = 0;
-                    while ($i < count($tasks)) {
-                        if ($tasks[$i]->status == 1) {
-                            $statusCount++;
-                        }
-                        $i++;
-                    }
-                    if ($statusCount == count($tasks) && count($tasks) > 0) {
-                        echo "<div class='complete'><img src='" . asset('img/complete.png') . "'></div>";
-                    }
-                @endphp
+                @if ($statusCount == count($tasks) && count($tasks) > 0)
+                <div class='complete'><img src='{{ asset('img/complete.png') }}'></div>
+                @endif
 
             </div><!-- /.tasks -->
         </form>

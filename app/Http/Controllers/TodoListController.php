@@ -16,7 +16,17 @@ class TodoListController extends Controller
     {
         $tasks = task::select('id', 'name', 'status')->get();
 
-        return view('tasks.index', compact('tasks'));
+        // tasks連想配列の全statusが1であることを確認するための条件
+        $i = 0;
+        $statusCount = 0;
+        while ($i < count($tasks)) {
+            if ($tasks[$i]->status == 1) {
+                $statusCount++;
+            }
+            $i++;
+        }
+
+        return view('tasks.index', compact('tasks', 'i', 'statusCount'));
     }
 
     /**

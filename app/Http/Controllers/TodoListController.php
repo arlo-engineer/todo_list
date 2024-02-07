@@ -15,7 +15,6 @@ class TodoListController extends Controller
     public function index()
     {
         $tasks = task::select('id', 'name', 'status')->get();
-        // $editTask = task::find($id);
 
         return view('tasks.index', compact('tasks'));
     }

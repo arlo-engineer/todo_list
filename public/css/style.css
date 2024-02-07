@@ -39,6 +39,7 @@ body {
 .tasks {
     font-size: 24px;
     margin-top: 65px;
+    position: relative;
 }
 
 .task {
@@ -101,4 +102,11 @@ body {
     text-align: right;
     color: #5aacea;
     text-decoration: underline;
+}
+
+.complete {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

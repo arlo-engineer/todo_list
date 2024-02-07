@@ -43,7 +43,22 @@
                     <div class="task-delete @if($task->status == 1)is-completion @endif"><a href="{{route('tasks.destroy', ['task' => $task->id])}}">削除</a></div>
                 </div><!-- /.task -->
                 @endforeach
-            </div>
+
+                @php
+                    $i = 0;
+                    $statusCount = 0;
+                    while ($i < count($tasks)) {
+                        if ($tasks[$i]->status == 1) {
+                            $statusCount++;
+                        }
+                        $i++;
+                    }
+                    if ($statusCount == count($tasks) && count($tasks) > 0) {
+                        echo "<div class='complete'><img src='" . asset('img/complete.png') . "'></div>";
+                    }
+                @endphp
+
+            </div><!-- /.tasks -->
         </form>
     </div>
 

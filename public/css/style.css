@@ -91,3 +91,14 @@ body {
     background: #FCE182;
 }
 
+.reset {
+    margin-top: 8px;
+}
+
+.reset a {
+    display: block;
+    font-size: 18px;
+    text-align: right;
+    color: #5aacea;
+    text-decoration: underline;
+}

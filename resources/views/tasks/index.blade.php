@@ -16,6 +16,7 @@
                 <input type="text" name="name" class="form-TaskName" value="{{ old('name') }}">
                 <button class="form-button">タスクを追加</button>
             </div>
+            {{-- <div class="reset"><a href="{{ route('tasks.reset') }}">リセットする</a></div> --}}
 
             @if ($errors->any())
             <div class="error-message">

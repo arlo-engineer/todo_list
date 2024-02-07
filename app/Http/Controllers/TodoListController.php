@@ -118,7 +118,7 @@ class TodoListController extends Controller
     }
 
     /**
-     * 完了->未完了ボタン
+     * 完了->未完了, 未完了->完了ボタン
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
